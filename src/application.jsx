@@ -29,10 +29,10 @@ var componentStyle = {
 	}
 	, navFixed: {
 		position: 'fixed'
-		, top: 0
+		, top: 100
 		, margin: '0 auto auto'
 		, width: '100%'
-		, textAlign: 'left'
+		, textAlign: 'center'
 	}
 	, list: {
 		zIndex: 200
