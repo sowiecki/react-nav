@@ -9,7 +9,7 @@
       html, body {
         margin: 0;
         padding: 0;
-        height: 10000px;
+        height: 12000px;
       }
       #anchor {
         position: absolute;
@@ -17,24 +17,23 @@
         width: 100%;
       }
       header {
-        height: 100px;
+        height: 200px;
       }
       footer {
         position: absolute;
         bottom: 0;
       }
-/*      #wrapper {
-        height: 1000px;
-        width: 1000px;
-        background: #FF0000;
-      }*/
+      #react-nav-labels-container {
+        transition: opacity .5s ease-in;
+        transition: all .5s ease .2s;
+      }
     </style>
   </head>
   <body>
-    <header>test</header>
+    <header>React-nav Demo</header>
     <div id="anchor"></div>
     <div id="wrapper"></div>
-    <footer>test<br><br><br>test<br><br><br>test</footer>
-    <script src="build/application.js"></script>
+    <footer>Footer</footer>
+    <script src="build/example_es6.js"></script>
   </body>
 </html>

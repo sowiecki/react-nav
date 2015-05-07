@@ -8,7 +8,7 @@ module.exports = function(grunt) {
       },
       dist: {
         files: {
-          "build/application.js": "src/application.jsx"
+          "build/example.js": "build/example_es6.js"
         }
       }
     },
@@ -24,12 +24,12 @@ module.exports = function(grunt) {
           keepAlive: true
         },
         files: {
-          "build/application.js": "src/application.jsx"
+          "build/example_es6.js": "src/example.jsx"
         }
       },
       prod: {
         files: {
-            "build/application.js": "src/application.jsx"
+            "build/example_es6.js": "src/example.jsx"
         },
         options: {
           transform: [reactify],
@@ -45,29 +45,16 @@ module.exports = function(grunt) {
              paths: ["build"]
          },
          files: {
-          "build/application.css": "src/less/*.less"
+          "build/example.css": "src/less/*.less"
         }
      },
-    },
-    uglify: {
-      my_target: {
-        files: {
-          "build/application.min.js": "build/application.js"
-        }
-      }
-    },
-    watch: {
-      files: ["./src/**/*", "./src/*"],
-      tasks: ["babel", "browserify"],
-    },
+    }
   });
 
   grunt.loadNpmTasks("grunt-contrib-less");
-  grunt.loadNpmTasks("grunt-contrib-watch");
   grunt.loadNpmTasks("grunt-browserify");
   grunt.loadNpmTasks("grunt-babel");
   grunt.loadNpmTasks("grunt-react");
-  grunt.loadNpmTasks("grunt-contrib-uglify");
 
   grunt.event.on("watch", function(action, filepath, target) {
     grunt.log.writeln(target + ": " + filepath + " has " + action);
@@ -76,5 +63,5 @@ module.exports = function(grunt) {
   grunt.registerTask('default', ['babel']);
   grunt.registerTask('default', ['browserify:prod']);
   grunt.registerTask('dev', ['browserify:dev']);
-  grunt.registerTask('prod', ['browserify:prod', 'uglify']);
+  grunt.registerTask('prod', ['browserify:prod', 'babel']);
 };
