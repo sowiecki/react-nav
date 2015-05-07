@@ -1,7 +1,7 @@
 {
-  "name": "DropdownNav",
+  "name": "react-nav",
   "version": "1.0.0",
-  "description": "Navigation dropdown.",
+  "description": "Sticky navigation dropdown.",
   "main": "src/react-nav.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -15,7 +15,7 @@
     "skeleton"
   ],
   "author": "Sean Owiecki <seanowiecki@gmail.com> (http://www.seanowiecki.com)",
-  "license": "Unlicense",
+  "license": "MIT",
   "dependencies": {
     "react": "^0.13.2"
   },
