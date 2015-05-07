@@ -29,7 +29,7 @@ var componentStyle = {
 	}
 	, navFixed: {
 		position: 'fixed'
-		, top: 100
+		, top: 0
 		, margin: '0 auto auto'
 		, width: '100%'
 		, textAlign: 'center'
@@ -41,7 +41,6 @@ var componentStyle = {
 		, listStyleType: 'none'
 	}
 }
-
 
 React.render(
 	<NavContainer style={componentStyle} links={links} position={100} />

@@ -2,24 +2,20 @@
 
 var React = require('react/addons');
 
+function endOfPage() {
+	return window.innerHeight + document.body.scrollTop >= document.body.offsetHeight;
+}
+
 class NavContainer extends React.Component {
 	constructor(props) {
 		super(props);
-		this.state = {position: this.props.position}
+		this.state = {position: document.body.scrollTop}
 	}
 	handleWheel(e) {
-		if (e.deltaY >= 0) {
-			this.setState({position: this.state.position + 1})
-		} else if (this.state.position < this.props.position + 1) {
-			this.setState({position: this.state.position})
-		} else {
-			this.setState({position: this.state.position - 1})
-		}
-		console.log(this.state.position)
+		this.setState({position: document.body.scrollTop})
 	}
 	render() {
-		var scrolled = window.screenTop;
-
+		console.log("scrollTop is " + document.body.scrollTop)
 		var componentStyle = this.props.style
 			,	links = this.props.links
 			, keys = Object.keys(this.props.links)
@@ -37,9 +33,9 @@ class NavContainer extends React.Component {
 			});
 		return (
 			<div>
-				<div key={this.state.position} onWheelCapture={this.handleWheel.bind(this)} style={componentStyle.capture}>
+				<div id="capture-wheel" onWheelCapture={this.handleWheel.bind(this)} style={componentStyle.capture}>
 				</div>
-				<div style={this.state.position <= this.props.position + 10 ? componentStyle.nav : componentStyle.navFixed}>
+				<div style={document.body.scrollTop > this.props.position + 40 ? componentStyle.navFixed : componentStyle.nav}>
 					{labels}
 				</div>
 				{this.state.position}
