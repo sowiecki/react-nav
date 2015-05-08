@@ -1,7 +1,5 @@
-## Getting started
-```jsx
 var React = require('react')
-    , NavContainer = require('react-nav');
+    , NavContainer = require('./react-nav.js');
 
 React.render(
     <NavContainer position={100}>
@@ -10,5 +8,3 @@ React.render(
     </NavContainer>
     , document.getElementById('anchor')
 );
-```
-Where position is the absolute value of pixels where the NavContainer will initially be rendered.

@@ -1,8 +1,7 @@
 "use strict";
 
 var React = require('react')
-		, componentStyle = require('./component-style')
-		, links;
+		, componentStyle = require('./style');
 
 class NavContainer extends React.Component {
 	constructor(props) {
@@ -18,20 +17,6 @@ class NavContainer extends React.Component {
 		this.setState({position: document.body.scrollTop})
 	}
 	render() {
-		var links = this.props.links
-			, keys = Object.keys(this.props.links)
-			, labels = keys.map(function(label) {
-				return (
-					<li style={componentStyle.list}
-							key={label}
-							className="nav-link">
-						<a href={label}
-							 className={"nav-link-" + links[label].toLowerCase()}
-							 dangerouslySetInnerHTML={{__html: links[label]}}>
-						</a>
-					</li>
-				);
-			});
 		return (
 			<div>
 				<div id="capture-wheel"
@@ -41,14 +26,11 @@ class NavContainer extends React.Component {
 				</div>
 				<nav id="react-nav-labels-container"
 						 style={document.body.scrollTop > this.props.position ? componentStyle.navFixed : componentStyle.nav}>
-					{labels}
+					{this.props.children}
 				</nav>
 			</div>
 		)
 	}
 }
 
-module.exports = {
-	component: NavContainer
-	, links: links
-};
+module.exports = NavContainer;

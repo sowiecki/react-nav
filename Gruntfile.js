@@ -8,7 +8,7 @@ module.exports = function(grunt) {
       },
       dist: {
         files: {
-          "build/example.js": "build/example_es6.js"
+          "react-nav.js": "react-nav_es6.js"
         }
       }
     },
@@ -24,12 +24,12 @@ module.exports = function(grunt) {
           keepAlive: true
         },
         files: {
-          "build/example_es6.js": "src/example.jsx"
+          "example_es6.js": "example.jsx"
         }
       },
       prod: {
         files: {
-            "build/example_es6.js": "src/example.jsx"
+            "react-nav_es6.js": "react-nav.jsx"
         },
         options: {
           transform: [reactify],
@@ -38,20 +38,9 @@ module.exports = function(grunt) {
           }
         }
       }
-    },
-    less: {
-      development: {
-         options: {
-             paths: ["build"]
-         },
-         files: {
-          "build/example.css": "src/less/*.less"
-        }
-     },
     }
   });
 
-  grunt.loadNpmTasks("grunt-contrib-less");
   grunt.loadNpmTasks("grunt-browserify");
   grunt.loadNpmTasks("grunt-babel");
   grunt.loadNpmTasks("grunt-react");
