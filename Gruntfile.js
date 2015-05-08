@@ -24,12 +24,12 @@ module.exports = function(grunt) {
           keepAlive: true
         },
         files: {
-          "example_es6.js": "example.jsx"
+          "example.js": "example.jsx"
         }
       },
       prod: {
         files: {
-            "react-nav_es6.js": "react-nav.jsx"
+            "react-nav.js": "react-nav.jsx"
         },
         options: {
           transform: [reactify],
@@ -52,5 +52,5 @@ module.exports = function(grunt) {
   grunt.registerTask('default', ['babel']);
   grunt.registerTask('default', ['browserify:prod']);
   grunt.registerTask('dev', ['browserify:dev']);
-  grunt.registerTask('prod', ['browserify:prod', 'babel']);
+  grunt.registerTask('prod', ['browserify:prod']);
 };

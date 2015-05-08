@@ -1,5 +1,5 @@
 var React = require('react')
-    , NavContainer = require('./react-nav.js');
+    , NavContainer = require('./react-nav.jsx');
 
 React.render(
     <NavContainer position={100}>
